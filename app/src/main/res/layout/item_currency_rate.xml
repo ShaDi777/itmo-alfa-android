@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/back_secondary">
+
+    <Space
+        android:id="@+id/startSpace"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutForLabels"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:orientation="vertical"
+        android:paddingVertical="12dp"
+        android:paddingLeft="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayoutForValue"
+        app:layout_constraintStart_toEndOf="@+id/startSpace"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/currencyFullLabel"
+            style="@style/Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/label_primary"
+            tools:text="@string/currency_full_label" />
+
+        <TextView
+            android:id="@+id/currencyShortLabel"
+            style="@style/SubBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/currency_short_label"
+            android:textColor="@color/label_secondary" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutForValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:orientation="vertical"
+        android:paddingVertical="12dp"
+        android:paddingLeft="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/endSpace"
+        app:layout_constraintStart_toEndOf="@+id/linearLayoutForLabels"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/currencyValue"
+            style="@style/LargeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/currency_value_label"
+            android:textColor="@color/label_primary"
+            app:layout_constraintEnd_toStartOf="@+id/endSpace" />
+
+    </LinearLayout>
+
+    <Space
+        android:id="@+id/endSpace"
+        android:layout_width="24dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Currency Rate Tracker</string>
+    <string name="app_name">Currency Rate</string>
+    <string name="last_refresh_label">Last refresh: </string>
+    <string name="currency_short_label" translatable="false">USD</string>
+    <string name="currency_full_label">US Dollar</string>
+    <string name="currency_value_label" translatable="false">1</string>
+    <string name="choose_theme_text">Choose application theme</string>
+    <string name="light_mode_choose_text">Light</string>
+    <string name="dark_mode_choose_text">Dark</string>
+    <string name="system_mode_choose_text">System</string>
 </resources>

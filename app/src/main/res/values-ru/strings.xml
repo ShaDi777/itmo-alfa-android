@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Курс валют</string>
+    <string name="last_refresh_label">Последнее обновление:</string>
+    <string name="currency_full_label">Доллар США</string>
+    <string name="choose_theme_text">Выберите тему приложения</string>
+    <string name="light_mode_choose_text">Светлая</string>
+    <string name="dark_mode_choose_text">Тёмная</string>
+    <string name="system_mode_choose_text">Как в системе</string>
+</resources>
