@@ -2,9 +2,16 @@
 <resources>
     <string name="app_name">Курс валют</string>
     <string name="last_refresh_label">Последнее обновление:</string>
+    <string name="current_base_currency">Основная валюта: USD</string>
     <string name="currency_full_label">Доллар США</string>
     <string name="choose_theme_text">Выберите тему приложения</string>
     <string name="light_mode_choose_text">Светлая</string>
     <string name="dark_mode_choose_text">Тёмная</string>
     <string name="system_mode_choose_text">Как в системе</string>
+    <string name="hello_blank_fragment">Привет пустой фрагмент</string>
+    <string name="day_time_range_label">Д</string>
+    <string name="week_time_range_label">Н</string>
+    <string name="month_time_range_label">М</string>
+    <string name="half_year_time_range_label">6М</string>
+    <string name="year_time_range_label">Г</string>
 </resources>

@@ -5,29 +5,33 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.shadi777.currency.rate.tracker.R
 import com.shadi777.currency.rate.tracker.databinding.ItemCurrencyRateBinding
-import com.shadi777.currency.rate.tracker.domain.entity.CurrencyRateEntity
+import com.shadi777.currency.rate.tracker.presentation.viewmodel.CurrencyDisplayData
 
-class CurrencyRateDataAdapter :
-    RecyclerView.Adapter<CurrencyRateDataAdapter.CurrencyRateViewHolder>() {
+class CurrencyRateDataAdapter(
+    private val onItemClick: (String) -> Unit // Передаем callback
+) : RecyclerView.Adapter<CurrencyRateDataAdapter.CurrencyRateViewHolder>() {
 
-    fun submitData(data: MutableList<CurrencyRateEntity>) = differ.submitList(data)
+    fun submitData(data: MutableList<CurrencyDisplayData>) = differ.submitList(data)
 
-    private val diffCallBack = object : DiffUtil.ItemCallback<CurrencyRateEntity>() {
+    private val diffCallBack = object : DiffUtil.ItemCallback<CurrencyDisplayData>() {
         override fun areItemsTheSame(
-            oldItem: CurrencyRateEntity,
-            newItem: CurrencyRateEntity
+            oldItem: CurrencyDisplayData,
+            newItem: CurrencyDisplayData
         ): Boolean {
-            return oldItem.shortLabel == newItem.shortLabel
+            return oldItem.shortCode == newItem.shortCode
         }
 
         override fun areContentsTheSame(
-            oldItem: CurrencyRateEntity,
-            newItem: CurrencyRateEntity
+            oldItem: CurrencyDisplayData,
+            newItem: CurrencyDisplayData
         ): Boolean {
-            return oldItem.shortLabel == newItem.shortLabel &&
-                    oldItem.fullLabel == newItem.fullLabel &&
-                    oldItem.rate == newItem.rate
+            return oldItem.shortCode == newItem.shortCode &&
+                    oldItem.fullName == newItem.fullName &&
+                    oldItem.rate == newItem.rate &&
+                    oldItem.iconUrl == newItem.iconUrl
         }
 
     }
@@ -37,7 +41,7 @@ class CurrencyRateDataAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyRateViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemBinding = ItemCurrencyRateBinding.inflate(layoutInflater, parent, false)
-        return CurrencyRateViewHolder(itemBinding)
+        return CurrencyRateViewHolder(itemBinding, onItemClick)
     }
 
     override fun onBindViewHolder(holder: CurrencyRateViewHolder, position: Int) {
@@ -49,13 +53,25 @@ class CurrencyRateDataAdapter :
         return differ.currentList.size
     }
 
-    class CurrencyRateViewHolder(private val dataBinding: ItemCurrencyRateBinding) :
-        RecyclerView.ViewHolder(dataBinding.root) {
+    class CurrencyRateViewHolder(
+        private val dataBinding: ItemCurrencyRateBinding,
+        private val onItemClick: (String) -> Unit,
+    ) : RecyclerView.ViewHolder(dataBinding.root) {
 
-        fun bindData(data: CurrencyRateEntity?) {
-            dataBinding.currencyFullLabel.text = data?.fullLabel
-            dataBinding.currencyShortLabel.text = data?.shortLabel.toString()
+        fun bindData(data: CurrencyDisplayData?) {
+            dataBinding.currencyFullLabel.text = data?.fullName
+            dataBinding.currencyShortLabel.text = data?.shortCode
             dataBinding.currencyValue.text = data?.rate.toString()
+
+            Glide.with(this.itemView.context)
+                .load(data?.iconUrl)
+                .placeholder(R.drawable.ic_placeholder_currency)
+                .error(R.drawable.ic_placeholder_currency)
+                .into(dataBinding.currencyIcon)
+
+            itemView.setOnClickListener {
+                data?.shortCode?.let { onItemClick(it) }
+            }
         }
     }
 }

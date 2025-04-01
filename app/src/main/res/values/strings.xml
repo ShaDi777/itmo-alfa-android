@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Currency Rate</string>
     <string name="last_refresh_label">Last refresh: </string>
+    <string name="current_base_currency">Base currency: USD</string>
     <string name="currency_short_label" translatable="false">USD</string>
     <string name="currency_full_label">US Dollar</string>
     <string name="currency_value_label" translatable="false">1</string>
@@ -8,4 +9,11 @@
     <string name="light_mode_choose_text">Light</string>
     <string name="dark_mode_choose_text">Dark</string>
     <string name="system_mode_choose_text">System</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="day_time_range_label">D</string>
+    <string name="week_time_range_label">W</string>
+    <string name="month_time_range_label">M</string>
+    <string name="half_year_time_range_label">6M</string>
+    <string name="year_time_range_label">Y</string>
 </resources>

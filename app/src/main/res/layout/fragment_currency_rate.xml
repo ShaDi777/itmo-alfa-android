@@ -37,7 +37,7 @@
                     android:layout_gravity="bottom"
                     android:layout_marginStart="60dp"
                     android:gravity="center_vertical"
-                    android:text="@string/last_refresh_label"
+                    android:text="@string/current_base_currency"
                     android:textColor="@android:color/tertiary_text_light" />
 
 
@@ -90,6 +90,9 @@
         android:layout_height="40dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="20dp"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/color_orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="H,1:1" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

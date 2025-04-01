@@ -2,7 +2,8 @@ package com.shadi777.currency.rate.tracker.di
 
 import com.shadi777.currency.rate.tracker.data.datasource.CurrencyRateDataSource
 import com.shadi777.currency.rate.tracker.data.datasource.CurrencyRateDataSourceImpl
-import com.shadi777.currency.rate.tracker.data.datasource.remote.MockCurrencyApi
+import com.shadi777.currency.rate.tracker.data.datasource.remote.CurrencyFreaksApi
+import com.shadi777.currency.rate.tracker.data.datasource.remote.EconomiaAwesomeJsonApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +16,13 @@ class DataSourceModule {
 
     @Singleton
     @Provides
-    fun provideCurrencyRateDataSource(currencyApi: MockCurrencyApi): CurrencyRateDataSource {
-        return CurrencyRateDataSourceImpl(currencyApi)
+    fun provideCurrencyRateDataSource(
+        freaksApi: CurrencyFreaksApi,
+        mainJsonApi: EconomiaAwesomeJsonApi,
+    ): CurrencyRateDataSource {
+        return CurrencyRateDataSourceImpl(
+            freaksApi,
+            mainJsonApi,
+        )
     }
 }
