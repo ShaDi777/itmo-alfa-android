@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation_graph"
+    app:startDestination="@id/currencyRateFragment">
+
+    <fragment
+        android:id="@+id/currencyRateFragment"
+        android:name="com.shadi777.currency.rate.tracker.presentation.fragment.CurrencyRateFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_currency_rate" >
+        <action
+            android:id="@+id/action_currencyRateFragment_to_currencyChartFragment"
+            app:destination="@id/currencyChartFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/currencyChartFragment"
+        android:name="com.shadi777.currency.rate.tracker.presentation.fragment.CurrencyChartFragment"
+        android:label="fragment_currency_chart"
+        tools:layout="@layout/fragment_currency_chart">
+        <argument
+            android:name="currencyCode"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+</navigation>

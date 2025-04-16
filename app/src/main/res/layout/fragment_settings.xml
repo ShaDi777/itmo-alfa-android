@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="?colorSurface"
+    android:padding="16dp">
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/dragHandle"
+        android:layout_width="35dp"
+        android:layout_height="3dp"
+        android:layout_marginHorizontal="0dp"
+        android:layout_marginTop="8dp"
+        app:dividerColor="?colorPrimaryVariant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textViewChooseMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/choose_theme_text"
+        android:textColor="?colorOnSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dragHandle" />
+
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/modeSelection"
+        style="?attr/materialButtonToggleGroupStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewChooseMode"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/lightMode"
+            style="@style/ToggleButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/light_mode_choose_text" />
+
+        <Button
+            android:id="@+id/systemMode"
+            style="@style/ToggleButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/system_mode_choose_text" />
+
+        <Button
+            android:id="@+id/darkMode"
+            style="@style/ToggleButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/dark_mode_choose_text" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
